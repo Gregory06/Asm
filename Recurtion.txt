@@ -1,0 +1,22 @@
+IN
+POP cx
+PUSH 1
+PUSH 1
+CALL :1
+HOLD
+:1
+OUT
+POP ax
+PUSH ax
+SUB
+POP bx
+PUSH ax
+PUSH bx
+PUSH cx
+JBE :2
+POP dx
+CALL :1
+:2
+MAU
+POP dx
+RET

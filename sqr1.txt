@@ -1,0 +1,117 @@
+PUSH 7
+PUSH 50
+PUSH 5
+POP cx
+POP bx
+POP ax
+PUSH ax
+PUSH 0
+JE :1
+
+POP
+POP
+PUSH 4
+PUSH ax
+PUSH cx
+MUL
+MUL
+PUSH -1
+MUL
+PUSH bx
+PUSH bx
+MUL
+SUB
+SQRT
+PUSH 0
+JA :5
+JE :6
+JB :7
+
+:5
+	PUSH 0
+	PUSH 0
+	DEV
+	OUT
+HOLD
+
+:6
+	POP dx
+	PUSH 2
+	PUSH ax
+	MUL
+	PUSH dx
+	PUSH bx
+	PUSH -1
+	MUL
+	ADD
+	DEV
+	OUT
+HOLD
+
+:7
+	POP dx
+	PUSH 2
+	PUSH ax
+	MUL
+	PUSH dx
+	PUSH bx
+	PUSH -1
+	MUL
+	ADD
+	DEV
+	OUT
+	PUSH -1
+	MUL
+	PUSH bx
+	PUSH -1
+	MUL
+	SUB
+	OUT
+HOLD
+
+:1
+	POP
+	POP
+	PUSH bx
+	PUSH 0
+JE :2
+
+POP
+POP
+PUSH bx
+PUSH -1
+MUL
+PUSH cx
+DEV
+OUT
+HOLD
+
+
+:2
+	POP
+	POP
+	PUSH cx
+	PUSH 0
+JE :3
+
+POP
+POP
+PUSH 0
+PUSH 0
+DEV
+OUT
+HOLD
+
+:3
+	CALL :4
+HOLD
+
+
+:4
+	POP
+	POP
+	PUSH 100500
+	OUT
+RET
+
+ 
